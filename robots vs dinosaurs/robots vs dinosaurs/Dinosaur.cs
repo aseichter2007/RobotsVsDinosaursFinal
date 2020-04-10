@@ -10,9 +10,11 @@ namespace robots_vs_dinosaurs
         int energy;
         int attackpower;
 
-        public Dinosaur()
+        public Dinosaur(Random random,string species)
         {
+            this.Species = species;
 
         }
+        
     }
 }
