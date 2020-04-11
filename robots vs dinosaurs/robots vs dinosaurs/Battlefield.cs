@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Xml.Schema;
 
 namespace robots_vs_dinosaurs
@@ -13,6 +14,7 @@ namespace robots_vs_dinosaurs
         public bool fancy = false;
         public Fleet fleet;
         public Herd  herd;
+        public asciiart asciiart;
         
         public Battlefield(string[] bodycount, Random random, bool fancy)
         {
@@ -22,6 +24,7 @@ namespace robots_vs_dinosaurs
             fleet = new Fleet(robots,random);
             herd = new Herd(dinos, random);
             this.fancy = fancy;
+            this.asciiart = new asciiart();
 
         }
         public void Round1Fight()
@@ -54,6 +57,10 @@ namespace robots_vs_dinosaurs
                     countR = 0;
                     countD = 0;
                 }
+                if (fancy == true)
+                {
+                    Thread.Sleep(1000);
+                }
             }
             if (herd.dinoList.Count > fleet.robotList.Count)
             {
@@ -65,22 +72,23 @@ namespace robots_vs_dinosaurs
             }
 
         }
-        public void RobotAttack(int i)
+        public void RobotAttack(int R)
         {
             int target = 0;
-            string[] gettack = fleet.robotList[i].RoboAttack();
+            string[] gettack = fleet.robotList[R].RoboAttack();
+            if(fleet.robotList.Count != R)
             if (fancy == true)
             {
-
+                asciiart.PrintAsciiArt("R");
             }
-            if (fleet.robotList[i].power > 100)
+            if (fleet.robotList[R].power > 100)
             {
-                fleet.robotList[i].power -= 100;
+                fleet.robotList[R].power -= 100;
                 if(herd.dinoList.Count > 1)
                 {
                    target = (random.Next(1, herd.dinoList.Count - 1))-1;
                 }
-                Console.WriteLine(fleet.robotList[i].model + " is attacking " + herd.dinoList[target].Species + " with it's " + gettack[0] + " for " + gettack[1] + " damage.");
+                Console.WriteLine(fleet.robotList[R].model + " is attacking " + herd.dinoList[target].Species + " with it's " + gettack[0] + " for " + gettack[1] + " damage.");
                 herd.dinoList[target].health -= Convert.ToInt32(gettack[1]);
                 if (herd.dinoList[target].health > 0)
                 {
@@ -96,44 +104,49 @@ namespace robots_vs_dinosaurs
             }
             else
             {
-                Console.WriteLine(fleet.robotList[i].model + "is too tired to fight");
-                fleet.robotList[i].power += 20;
+                Console.WriteLine(fleet.robotList[R].model + " can't charge up its lazor.");
+                fleet.robotList[R].power += 20;
             }
 
         }
-        public void DinoAttack(int i)
+        public void DinoAttack(int D)
         {
             int target = 0;
-            string[] gettack = herd.dinoList[i].DinoAttack();
-            if (fancy == true)
+            string[] gettack = new string[2];
+            if (herd.dinoList.Count != D)
             {
 
-            }
-            if (herd.dinoList[i].energy > 100)
-            {
-                herd.dinoList[i].energy -=100;
-                if (fleet.robotList.Count > 1)
+                gettack = herd.dinoList[D].DinoAttack();
+                if (fancy == true)
                 {
-                    target = (random.Next(1, fleet.robotList.Count - 1))-1;
-                }             
-                Console.WriteLine(herd.dinoList[i].Species + " is attacking " + fleet.robotList[target].model + " with it's " + gettack[0] + " for " + gettack[1] + " damage.");
-                fleet.robotList[target].health -= Convert.ToInt32(gettack[1]);
-                if (fleet.robotList[target].health > 0)
+                    asciiart.PrintAsciiArt("D");
+                }
+                if (herd.dinoList[D].energy > 100)
                 {
-                    Console.WriteLine(fleet.robotList[target].model + " has " + fleet.robotList[target].health + " health reamaining.");
+                    herd.dinoList[D].energy -= 100;
+                    if (fleet.robotList.Count > 1)
+                    {
+                        target = (random.Next(1, fleet.robotList.Count - 1)) - 1;
+                    }
+                    Console.WriteLine(herd.dinoList[D].Species + " is attacking " + fleet.robotList[target].model + " with it's " + gettack[0] + " for " + gettack[1] + " damage.");
+                    fleet.robotList[target].health -= Convert.ToInt32(gettack[1]);
+                    if (fleet.robotList[target].health > 0)
+                    {
+                        Console.WriteLine(fleet.robotList[target].model + " has " + fleet.robotList[target].health + " health reamaining.");
+                    }
+                    else
+                    {
+                        Console.WriteLine(fleet.robotList[target].model + " has stopped functioning.");
+                        fleet.robotList.RemoveAt(target);
+                        fleet.robotList.TrimExcess();
+                        Console.WriteLine("there are " + fleet.robotList.Count + " robots left.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine(fleet.robotList[target].model + " has stopped functioning.");
-                    fleet.robotList.RemoveAt(target);
-                    fleet.robotList.TrimExcess();
-                    Console.WriteLine("there are " + fleet.robotList.Count + " robots left.");
+                    Console.WriteLine(herd.dinoList[D].Species + " is too tired to fight");
+                    herd.dinoList[D].energy += 20;
                 }
-            }
-            else
-            {
-                Console.WriteLine(herd.dinoList[i].Species + "is too tired to fight");
-                herd.dinoList[i].energy += 20;
             }
         }
         public void ChooseOpponent()

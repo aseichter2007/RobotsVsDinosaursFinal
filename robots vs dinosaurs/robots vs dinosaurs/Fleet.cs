@@ -18,7 +18,7 @@ namespace robots_vs_dinosaurs
         }
         public void CreateBots(Random random, int count)
         {
-            List<string> robo = new List<string>() { "Assaultron", "Mechanaruto", "Mr. Handy", "Clippy", "HK47", "HK50", "Walt Disney", "Mechastreisand", "Megazord","R2D2", "protocol droid", "Robogodzilla", "Anna", "Teddy Ruxpin" };
+            List<string> robo = new List<string>() { "Assaultron", "Mechanaruto", "Mr. Handy", "Clippy", "HK47", "HK50", "Walt Disney", "Mechastreisand", "Megazord","R2D2", "protocol droid", "Robogodzilla", "Anna", "Teddy Ruxpin", "P90X", "Bigdog", "T-800", "T-1000", "Hillary Clinton", "Mark Zuckerberg", "Data", "Lore" };
             string model;
             int bolts=0;
 

@@ -10,8 +10,44 @@ namespace robots_vs_dinosaurs
         {
                  
         }
-        public void PrintAsciiArt(int i)
+        public void PrintAsciiArt(string type)
         {
+            if (type == "D")
+            {
+                Console.WriteLine("               ,  ;:._.-`''.");
+                Console.WriteLine("             ;.;'.;`      _ `.");
+                Console.WriteLine("              ',;`       ( ) ,`-.  ");
+                Console.WriteLine("           `:.`,         (_/ ;)  `-.");
+                Console.WriteLine("            ';:              / `.   `-._");
+                Console.WriteLine("          `;.;'              `-,/ .     `-.");
+                Console.WriteLine("          ';;'              _    `^`       `.");
+                Console.WriteLine("         ';;            ,'-' `--._          ;");
+                Console.WriteLine("':      `;;        ,;     `.    ':`,,.__,,_ /");
+                Console.WriteLine(" `;`:;`;:`       ,;  '.    ;,      ';';':';;`");
+                Console.WriteLine("              .,; '    '-._ `':.;    ");
+                Console.WriteLine("            .:; `          '._ `';;,");
+                Console.WriteLine("          ;:` `    :'`'       ',__.)");
+                Console.WriteLine("        `;:;:.,...;'`'");
+                Console.WriteLine("';. '`'::'`''.'`'");
+                Console.WriteLine("    ,''''`';;:,..::;`'`'");
+                Console.WriteLine(", .;`      `'::''`");
+                Console.WriteLine(",`;`.");
+            }
+            else if (type == "R")
+            {
+
+                Console.WriteLine("    /_/");
+                Console.WriteLine("   (_**)");
+                Console.WriteLine("  __) #_");
+                Console.WriteLine(" ( )...()");
+                Console.WriteLine(" || | |I|");
+                Console.WriteLine(" || | |()__/");
+                Console.WriteLine(" /)(___)");
+                Console.WriteLine("_-'''''''' )");
+                Console.WriteLine("-,,,,,,,,- ,");
+
+            }
+           
 
         }
     }

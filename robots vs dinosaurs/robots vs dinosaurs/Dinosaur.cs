@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace robots_vs_dinosaurs
@@ -23,7 +24,7 @@ namespace robots_vs_dinosaurs
         }
         public string DinoBreed(Random random)
         {
-            List<string> species = new List<string>()  { "t-rex", "Hillary Clinton", "mosasaurus", "velociraptor", "utahraptor", "triceratops", "pachycephalosaurus", "allosaurus", "Carnotorus", "Long Neck", "Spinosaurus", "baryonyx", "fire wevyrn", "lightning wevyrn", "gigantosaurus", "iguanodon", "ankylosaur"};
+            List<string> species = new List<string>()  { "t-rex", "Betty White", "Queen Elizabeth", "mosasaurus", "velociraptor", "utahraptor", "triceratops", "pachycephalosaurus", "allosaurus", "carnotorus", "long Neck", "spinosaurus", "baryonyx", "fire wevyrn", "lightning wevyrn", "gigantosaurus", "iguanodon", "ankylosaur", "Littlefoot", "Ducky", "Peitree", "demogorgon"};
 
             string dino;
             int egg = random.Next(0, species.Count);
@@ -32,7 +33,7 @@ namespace robots_vs_dinosaurs
         }
         public string[] DinoAttack()
         {
-            List<string> attack = new List<string>() { "fire breath", "tail whip", "quick attack", "hyper beam", "scratch", " bite" };
+            List<string> attack = new List<string>() { "fire breath", "tail whip", "quick attack", "hyper beam", "scratch", " bite", "claw", "body slam", };
 
             int strike = random.Next(0, attack.Count - 1);// is this right? or will straight count overflow?
             int damage = random.Next(0, 500);
