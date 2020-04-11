@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace robots_vs_dinosaurs
 {
@@ -65,7 +66,7 @@ namespace robots_vs_dinosaurs
             Battlefield battlefield = new Battlefield(bodyCount, random, veryFancy);
 
             battlefield.Round1Fight();
-
+            Console.WriteLine("Press enter to exit.");
             Console.ReadLine();
 
         }
