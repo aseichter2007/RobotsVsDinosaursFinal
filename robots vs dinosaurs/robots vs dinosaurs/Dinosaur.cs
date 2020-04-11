@@ -37,7 +37,7 @@ namespace robots_vs_dinosaurs
             List<string> attack = new List<string>() { "fire breath", "tail whip", "quick attack", "hyper beam", "scratch", " bite", "claw", "body slam", };
 
             int strike = random.Next(0, attack.Count - 1);// is this right? or will straight count overflow?
-            int damage = random.Next(0, 500);
+            int damage = random.Next(0, 700);
             damage = damage * attackpower;
             string[] attacking = new string[] { attack[strike], damage.ToString() };
             return attacking;

@@ -66,6 +66,8 @@ namespace robots_vs_dinosaurs
 
             battlefield.Round1Fight();
 
+            Console.ReadLine();
+
         }
     }
 }
