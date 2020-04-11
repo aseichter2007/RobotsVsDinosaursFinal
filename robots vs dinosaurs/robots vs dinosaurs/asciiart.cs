@@ -44,7 +44,7 @@ namespace robots_vs_dinosaurs
                 Console.WriteLine(" || | |()__/");
                 Console.WriteLine(" /)(___)");
                 Console.WriteLine("_-'''''''' )");
-                Console.WriteLine("-,,,,,,,,- ,");
+                Console.WriteLine("-,,,,,,,,-',");
 
             }
            

@@ -14,10 +14,10 @@ namespace robots_vs_dinosaurs
         public Weapon(Random random)
         {
             this.random = random;
-            this.weapon = WeaponRoulette(random);
-            this.damage = weaponQuality(random);
+            weapon = WeaponRoulette();
+            damage = weaponQuality();
         }
-        public string WeaponRoulette(Random random)
+        public string WeaponRoulette()
         {
             string[] arsenal = new string[6] { "lazor", "sword", "sawblade", "machinegun", "minigun", "raygun" };
 
@@ -25,7 +25,7 @@ namespace robots_vs_dinosaurs
             return weapon = arsenal[randweapon];
 
         }
-        public int weaponQuality(Random random)
+        public int weaponQuality()
         {
             int weaponPower = random.Next(1, 1000);
             return weaponPower;

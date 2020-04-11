@@ -16,8 +16,8 @@ namespace robots_vs_dinosaurs
         {
             this.model = model;
             this.random = random;
-            this.Weapon = new Weapon(random);
-            this.health = RoboHeatlh();
+            Weapon = new Weapon(random);
+            health = RoboHeatlh();
             power = RoboPwr();
         }
         public int RoboHeatlh()

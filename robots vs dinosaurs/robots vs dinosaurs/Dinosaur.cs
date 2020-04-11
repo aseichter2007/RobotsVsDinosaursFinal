@@ -15,14 +15,15 @@ namespace robots_vs_dinosaurs
 
         public Dinosaur(Random random)
         {
-            Species = DinoBreed(random);
             this.random = random;
-            health = DinoHealth(random);
+            Species = DinoBreed();
+
+            health = DinoHealth();
             attackpower = PowerAttack();
-            energy = DinoEnergy(random);
+            energy = DinoEnergy();
 
         }
-        public string DinoBreed(Random random)
+        public string DinoBreed()
         {
             List<string> species = new List<string>()  { "t-rex", "Betty White", "Queen Elizabeth", "mosasaurus", "velociraptor", "utahraptor", "triceratops", "pachycephalosaurus", "allosaurus", "carnotorus", "long Neck", "spinosaurus", "baryonyx", "fire wevyrn", "lightning wevyrn", "gigantosaurus", "iguanodon", "ankylosaur", "Littlefoot", "Ducky", "Peitree", "demogorgon"};
 
@@ -41,19 +42,19 @@ namespace robots_vs_dinosaurs
             string[] attacking = new string[] { attack[strike], damage.ToString() };
             return attacking;
         }
-        public int DinoHealth(Random random)
+        public int DinoHealth()
         {
             int health = random.Next(1, 10000);
             return health;
         }
-        public int DinoEnergy(Random random)
+        public int DinoEnergy()
         {
             int pwr = random.Next(1, 20000);
             return pwr;
         }
         public int PowerAttack()
         {
-            int pwr = random.Next(1, 3);
+            int pwr = random.Next(1, 4);
             return pwr;
         }
 

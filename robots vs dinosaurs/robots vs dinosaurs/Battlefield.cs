@@ -26,18 +26,23 @@ namespace robots_vs_dinosaurs
             this.fancy = fancy;
             this.asciiart = new asciiart();
 
+
         }
         public void Round1Fight()
         {
             int countR = 0;
             int countD = 0;
-            fleet.CreateBots(random,robots);
-            herd.Breed(dinos,random);
+            fleet.CreateBots();
+            herd.Breed();
             while (fleet.robotList.Count > 0 && herd.dinoList.Count > 0)
             {
                 if (countR < fleet.robotList.Count && countD < herd.dinoList.Count)
                 {
                     RobotAttack(countR);
+                    if (fancy == true)
+                    {
+                        Thread.Sleep(1200);
+                    }
                     DinoAttack(countD);
                     countR++;
                     countD++;
@@ -57,9 +62,10 @@ namespace robots_vs_dinosaurs
                     countR = 0;
                     countD = 0;
                 }
+
                 if (fancy == true)
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1200);
                 }
             }
             if (herd.dinoList.Count > fleet.robotList.Count)

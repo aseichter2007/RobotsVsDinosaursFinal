@@ -11,37 +11,57 @@ namespace robots_vs_dinosaurs
             //I repeatedly broke standardization as a learning excercise.
             // the next complex program I write will be a lot neater and have some
             //constency in the way methods are implemented. 
+            bool veryFancy = false;
+            string soFancy = "";
+            string[] bodyCount = new string[2] { "3", "3" };
 
 
             Random random = new Random();
-            Console.WriteLine("do it fancy?");
-            string fancy = Console.ReadLine();
-            bool veryFancy = false;
-            string[] bodyCount = new string[2] { "3", "3" };
+            Console.WriteLine("Do it fancy?");
+            string fancy = Console.ReadLine();            
             if (fancy == "yes" || fancy == "y" || fancy == "sure")
             {
                 Console.WriteLine("how many robots and dinos?");
                 Console.WriteLine("theoretical max count each 2,147,483,647 ");
-                Console.WriteLine("but I run out of addressable memory just over 30 million");
-                Console.WriteLine("robots 'enter' dinos, no commas please");
+                Console.WriteLine("but it runs out of addressable memory just over 35 million.");
+                Console.WriteLine("robots 'enter' dinos, no commas please.");
                 bodyCount = new string[2] { Console.ReadLine(), Console.ReadLine() };
-                //Console.WriteLine(bodycount[0] + bodycount[1]);
                 Console.WriteLine("How fancy do you want it?");
-                string sofancy = Console.ReadLine();
-                if (sofancy == "very" || sofancy == "fancy" || sofancy == "very fancy")
+                soFancy = Console.ReadLine();
+                if (soFancy == "very" || soFancy == "fancy" || soFancy == "very fancy" || soFancy == "v" || soFancy == "f" || soFancy == "Very" || soFancy == "Fancy" || soFancy == "Very Fancy")
                 {
-                    Console.WriteLine("Are you sure you can handle it?");
+                    Console.WriteLine("Careful bro. Are you sure you can handle it?");
                     string iCantHandleIt = Console.ReadLine();
                     if (iCantHandleIt == "yes")
                     {
                         veryFancy = true;
                     }
+                    else if ( iCantHandleIt == "y")
+                    {
+                        Console.WriteLine("Not enough conviction, I dont believe you. Maybe next time.");
+                        Console.ReadLine();
+                    }
 
-                    //Console.WriteLine(bodyCount[0] + bodyCount[1]);
+                }
+                if (Convert.ToInt32(bodyCount[0]) > 1000 || Convert.ToInt32(bodyCount[1]) > 1000)
+                {
+                    Console.WriteLine("Generating, please wait.");
                 }
 
             }
-                      
+            else
+            {
+                Console.WriteLine("Maybe just a little fancy?");
+                soFancy = Console.ReadLine();
+                if (soFancy == "y" || soFancy == "ok" || soFancy == "okay")
+                {
+                    veryFancy = true;
+                }
+            }
+
+
+
+
             Battlefield battlefield = new Battlefield(bodyCount, random, veryFancy);
 
             battlefield.Round1Fight();

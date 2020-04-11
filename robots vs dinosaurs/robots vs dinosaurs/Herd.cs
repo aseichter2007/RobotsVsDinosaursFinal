@@ -16,10 +16,10 @@ namespace robots_vs_dinosaurs
             dinoList = new List<Dinosaur>();
             
         }
-        public void Breed(int count, Random random)
+        public void Breed()
 
         {
-            for(int i = 0; i < count; i++)
+            for(int i = 0; i < dinosaurs; i++)
             {
 
                 Dinosaur dinosaur = new Dinosaur(random);
