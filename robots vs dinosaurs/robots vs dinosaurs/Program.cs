@@ -29,7 +29,7 @@ namespace robots_vs_dinosaurs
                 bodyCount = new string[2] { Console.ReadLine(), Console.ReadLine() };
                 Console.WriteLine("How fancy do you want it?");
                 soFancy = Console.ReadLine();
-                if (soFancy == "very" || soFancy == "fancy" || soFancy == "very fancy" || soFancy == "v" || soFancy == "f" || soFancy == "Very" || soFancy == "Fancy" || soFancy == "Very Fancy")
+                if (soFancy == "very" || soFancy == "fancy" ||soFancy == "so"|| soFancy == "very fancy" || soFancy == "v" || soFancy == "f" || soFancy == "Very" || soFancy == "Fancy" || soFancy == "Very Fancy")
                 {
                     Console.WriteLine("Careful bro. Are you sure you can handle it?");
                     string iCantHandleIt = Console.ReadLine();
@@ -46,7 +46,7 @@ namespace robots_vs_dinosaurs
                 }
                 if (Convert.ToInt32(bodyCount[0]) > 1000 || Convert.ToInt32(bodyCount[1]) > 1000)
                 {
-                    Console.WriteLine("Generating, please wait.");
+                    Console.WriteLine("Generating, please wait...");
                 }
 
             }
@@ -54,7 +54,7 @@ namespace robots_vs_dinosaurs
             {
                 Console.WriteLine("Maybe just a little fancy?");
                 soFancy = Console.ReadLine();
-                if (soFancy == "y" || soFancy == "ok" || soFancy == "okay")
+                if (soFancy == "y" || soFancy == "ok" || soFancy == "okay"|| soFancy == "yes" || soFancy == "fine")
                 {
                     veryFancy = true;
                 }
