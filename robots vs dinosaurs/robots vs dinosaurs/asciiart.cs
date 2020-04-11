@@ -8,8 +8,11 @@ namespace robots_vs_dinosaurs
     {
         public asciiart()
         {
-                
+                 
         }
+        public void PrintAsciiArt(int i)
+        {
 
+        }
     }
 }

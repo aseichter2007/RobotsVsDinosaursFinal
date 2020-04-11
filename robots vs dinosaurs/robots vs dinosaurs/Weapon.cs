@@ -5,28 +5,31 @@ using System.Text;
 namespace robots_vs_dinosaurs
 {
     class Weapon
-    {
-        string weapon;
-        int damage;
-        Random random = new Random();
+    {   
+        
+        public string weapon;
+        public int damage;
+        Random random;
 
-        public Weapon()
+        public Weapon(Random random)
         {
-            this.weapon = WeaponRoulette();
-            this.damage = weaponQuality();
+            this.random = random;
+            this.weapon = WeaponRoulette(random);
+            this.damage = weaponQuality(random);
         }
-        public string WeaponRoulette()
+        public string WeaponRoulette(Random random)
         {
-            string[] arsenal = new string[6] { "tazer", "sword", "sawblade", "machinegun", "minigun", "raygun" };
+            string[] arsenal = new string[6] { "lazor", "sword", "sawblade", "machinegun", "minigun", "raygun" };
 
-            int randweapon =random.Next(0, 6);
+            int randweapon =random.Next(0, 5);
             return weapon = arsenal[randweapon];
 
         }
-        public int weaponQuality()
+        public int weaponQuality(Random random)
         {
             int weaponPower = random.Next(1, 1000);
             return weaponPower;
         }
+        
     }
 }

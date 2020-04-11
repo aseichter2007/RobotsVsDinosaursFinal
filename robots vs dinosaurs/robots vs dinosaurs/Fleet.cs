@@ -7,18 +7,29 @@ namespace robots_vs_dinosaurs
 
     class Fleet
     {
-        decimal robots;
-        Random random;
-
-        public Fleet(decimal robots, Random random)
+        public int robots;
+        public Random random;
+        public List<Robot> robotList; 
+        public Fleet(int robots, Random random)
         {
             this.robots = robots;
             this.random = random;
-
+            robotList = new List<Robot>();
         }
-        public void CreateBots(Random random)
+        public void CreateBots(Random random, int count)
         {
+            List<string> robo = new List<string>() { "Assaultron", "Mechanaruto", "Mr. Handy", "Clippy", "HK47", "HK50", "Walt Disney", "Mechastreisand", "Megazord","R2D2", "protocol droid", "Robogodzilla", "Anna", "Teddy Ruxpin" };
+            string model;
+            int bolts=0;
 
+            for (int i = 0; i < count; i++)
+            {
+                bolts = random.Next(0, robo.Count - 1);// is this right? or will straight count overflow?
+                model = robo[bolts];
+                Robot robot = new Robot(random, model);
+                robotList.Add(robot);
+
+            }
         }
 
     }
