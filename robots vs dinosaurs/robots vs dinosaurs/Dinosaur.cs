@@ -7,7 +7,7 @@ namespace robots_vs_dinosaurs
 {
     class Dinosaur
     {
-        public string Species;
+        public string name;
         public int energy;
         public int attackpower;
         public int health;
@@ -16,7 +16,7 @@ namespace robots_vs_dinosaurs
         public Dinosaur(Random random)
         {
             this.random = random;
-            Species = DinoBreed();
+            name = DinoBreed();
 
             health = DinoHealth();
             attackpower = PowerAttack();

@@ -7,18 +7,18 @@ namespace robots_vs_dinosaurs
 {
     class Robot
     {
-        public string model;
-        public int power;
+        public string name;
+        public int powerLevel;
         public int health;
         Weapon Weapon;
         Random random;
         public Robot(Random random,string model)
         {
-            this.model = model;
+            this.name = model;
             this.random = random;
             Weapon = new Weapon(random);
             health = RoboHeatlh();
-            power = RoboPwr();
+            powerLevel = RoboPwr();
         }
         public int RoboHeatlh()
         {
@@ -33,8 +33,8 @@ namespace robots_vs_dinosaurs
         public string [] RoboAttack()
         {
             
-            int attack = this.Weapon.damage;
-            string weapon = this.Weapon.weapon;
+            int attack = this.Weapon.attackPower;
+            string weapon = this.Weapon.type;
             string damage = attack.ToString();
             string[] attacking = new string[2] {weapon, damage };
             return attacking;

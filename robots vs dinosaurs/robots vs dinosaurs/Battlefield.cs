@@ -87,22 +87,22 @@ namespace robots_vs_dinosaurs
             {
                 asciiart.PrintAsciiArt("R");
             }
-            if (fleet.robotList[R].power > 100)
+            if (fleet.robotList[R].powerLevel > 100)
             {
-                fleet.robotList[R].power -= 100;
+                fleet.robotList[R].powerLevel -= 100;
                 if(herd.dinoList.Count > 1)
                 {
                    target = (random.Next(1, herd.dinoList.Count - 1))-1;
                 }
-                Console.WriteLine(fleet.robotList[R].model + " is attacking " + herd.dinoList[target].Species + " with it's " + gettack[0] + " for " + gettack[1] + " damage.");
+                Console.WriteLine(fleet.robotList[R].name + " is attacking " + herd.dinoList[target].name + " with it's " + gettack[0] + " for " + gettack[1] + " damage.");
                 herd.dinoList[target].health -= Convert.ToInt32(gettack[1]);
                 if (herd.dinoList[target].health > 0)
                 {
-                    Console.WriteLine(herd.dinoList[target].Species + " has " + herd.dinoList[target].health + " health reamaining.");
+                    Console.WriteLine(herd.dinoList[target].name + " has " + herd.dinoList[target].health + " health reamaining.");
                 }
                 else
                 {
-                    Console.WriteLine(herd.dinoList[target].Species + " has died.");
+                    Console.WriteLine(herd.dinoList[target].name + " has died.");
                     herd.dinoList.RemoveAt(target);
                     herd.dinoList.TrimExcess();
                     Console.WriteLine("there are " + herd.dinoList.Count + " dinosaurs left.");
@@ -110,15 +110,15 @@ namespace robots_vs_dinosaurs
             }
             else
             {
-                Console.WriteLine(fleet.robotList[R].model + " can't charge up its lazor.");
-                fleet.robotList[R].power += 20;
+                Console.WriteLine(fleet.robotList[R].name + " can't charge up its lazor.");
+                fleet.robotList[R].powerLevel += 20;
             }
 
         }
         public void DinoAttack(int D)
         {
             int target = 0;
-            string[] gettack = new string[2];
+            string[] gettack = new string[2]; 
             if (herd.dinoList.Count != D)
             {
 
@@ -134,15 +134,15 @@ namespace robots_vs_dinosaurs
                     {
                         target = (random.Next(1, fleet.robotList.Count - 1)) - 1;
                     }
-                    Console.WriteLine(herd.dinoList[D].Species + " is attacking " + fleet.robotList[target].model + " with it's " + gettack[0] + " for " + gettack[1] + " damage.");
+                    Console.WriteLine(herd.dinoList[D].name + " is attacking " + fleet.robotList[target].name + " with it's " + gettack[0] + " for " + gettack[1] + " damage.");
                     fleet.robotList[target].health -= Convert.ToInt32(gettack[1]);
                     if (fleet.robotList[target].health > 0)
                     {
-                        Console.WriteLine(fleet.robotList[target].model + " has " + fleet.robotList[target].health + " health reamaining.");
+                        Console.WriteLine(fleet.robotList[target].name + " has " + fleet.robotList[target].health + " health reamaining.");
                     }
                     else
                     {
-                        Console.WriteLine(fleet.robotList[target].model + " has stopped functioning.");
+                        Console.WriteLine(fleet.robotList[target].name + " has stopped functioning.");
                         fleet.robotList.RemoveAt(target);
                         fleet.robotList.TrimExcess();
                         Console.WriteLine("there are " + fleet.robotList.Count + " robots left.");
@@ -150,7 +150,7 @@ namespace robots_vs_dinosaurs
                 }
                 else
                 {
-                    Console.WriteLine(herd.dinoList[D].Species + " is too tired to fight");
+                    Console.WriteLine(herd.dinoList[D].name + " is too tired to fight");
                     herd.dinoList[D].energy += 20;
                 }
             }
